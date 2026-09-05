@@ -8,6 +8,10 @@ squared error. Scale-sensitive family: log1p(Time(h)) alongside raw.
 The alpha grid runs well past a lightly-regularized range because an
 earlier pass showed the un/lightly-regularized MLP overfits this
 feature-rich, small dataset.
+
+Hidden activation is grid-searched too (relu vs. tanh vs. logistic
+[sigmoid]) rather than left at the sklearn default, so the choice is
+backed by the same inner-CV evidence as every other hyperparameter here.
 """
 from sklearn.neural_network import MLPRegressor
 
@@ -31,4 +35,5 @@ class MLPModel(ModelFamily):
         return {
             "model__hidden_layer_sizes": [(32,), (64,), (32, 16)],
             "model__alpha": [0.01, 0.1, 1.0, 10.0, 30.0],
+            "model__activation": ["relu", "tanh", "logistic"],
         }
