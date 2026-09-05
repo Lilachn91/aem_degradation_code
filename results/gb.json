@@ -1,0 +1,20 @@
+{
+  "name": "gb",
+  "best_params": {
+    "model__learning_rate": 0.03,
+    "model__max_depth": 3,
+    "model__n_estimators": 200
+  },
+  "grid_best_cv_rmse": 30.240540983394556,
+  "dev_cv": {
+    "r2": 0.25109786125936384,
+    "rmse": 31.13848918143857,
+    "mae": 23.476860015648057
+  },
+  "locked_test": {
+    "r2": 0.44688061484438246,
+    "rmse": 26.536567578479367,
+    "mae": 20.70911066142781
+  },
+  "tuning_seconds": 8.5
+}

@@ -1,0 +1,77 @@
+{
+  "name": "rf_rowlevel_diagnostic",
+  "note": "Diagnostic only. Same RF pipeline/grid as model_rf.py; only the split policy differs (row-level instead of grouped by SMILES).",
+  "split_policy": {
+    "split_column": "random_split_diagnostic",
+    "inner_cv": "KFold(n_splits=10, shuffle=True, random_state=42)"
+  },
+  "leakage": {
+    "n_rows_total": 896,
+    "n_molecules_total": 150,
+    "n_train_rows": 716,
+    "n_test_rows": 180,
+    "n_test_molecules": 83,
+    "n_molecules_both_sides": 72,
+    "pct_molecules_both_sides": 48.0,
+    "n_rows_of_leaked_molecules": 707,
+    "pct_rows_of_leaked_molecules": 78.9,
+    "pct_test_molecules_seen_in_train": 86.7
+  },
+  "best_params": {
+    "model__max_depth": null,
+    "model__min_samples_leaf": 1,
+    "model__n_estimators": 500
+  },
+  "grid_best_cv_rmse": 14.24229839489745,
+  "row_level_cv": {
+    "r2": 0.8351673159944,
+    "rmse": 14.698454314703126,
+    "mae": 7.617660568200323
+  },
+  "row_level_test": {
+    "r2": 0.8271900834822881,
+    "rmse": 14.651194571290382,
+    "mae": 7.710881328161903
+  },
+  "row_level_fixed_grouped_hparams": {
+    "params": {
+      "model__max_depth": 10,
+      "model__min_samples_leaf": 1,
+      "model__n_estimators": 200
+    },
+    "cv": {
+      "r2": 0.8229950751083575,
+      "rmse": 15.231500066852512,
+      "mae": 8.56789776993246
+    },
+    "test": {
+      "r2": 0.8092746226216307,
+      "rmse": 15.39192530652448,
+      "mae": 8.798317367939422
+    }
+  },
+  "grouped_reference": {
+    "best_params": {
+      "model__max_depth": 10,
+      "model__min_samples_leaf": 1,
+      "model__n_estimators": 200
+    },
+    "dev_cv": {
+      "r2": 0.3597831783431563,
+      "rmse": 28.790455907458846,
+      "mae": 20.18898176796622
+    },
+    "locked_test": {
+      "r2": 0.4360304876685003,
+      "rmse": 26.79557749533345,
+      "mae": 19.33491614810481
+    }
+  },
+  "inflation": {
+    "cv_r2_delta": 0.47538413765124365,
+    "test_r2_delta": 0.3911595958137878,
+    "cv_rmse_delta": -14.09200159275572,
+    "test_rmse_delta": -12.144382924043068
+  },
+  "tuning_seconds": 17.4
+}

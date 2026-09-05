@@ -1,0 +1,70 @@
+[rf] best params: {'model__max_depth': 10, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}
+[rf] best CV RMSE (mean of 10 fold scores): 27.43  (tuning took 14s)
+[rf] pooled dev-CV (120 molecules): R2 = 0.360  RMSE = 28.79  MAE = 20.19
+[rf] LOCKED TEST (30 molecules):    R2 = 0.436  RMSE = 26.80  MAE = 19.33
+===RFJSON DONE===
+  fold 0: SHAP over 67 held-out rows done
+  fold 1: SHAP over 67 held-out rows done
+  fold 2: SHAP over 67 held-out rows done
+  fold 3: SHAP over 67 held-out rows done
+  fold 4: SHAP over 67 held-out rows done
+  fold 5: SHAP over 67 held-out rows done
+  fold 6: SHAP over 67 held-out rows done
+  fold 7: SHAP over 66 held-out rows done
+  fold 8: SHAP over 66 held-out rows done
+  fold 9: SHAP over 66 held-out rows done
+
+=== SHAP fold-stability (rf) ===
+mean pairwise Spearman rho across 10 folds: 0.866
+top-15 features by overall mean|SHAP| (appearances in fold-level top-15):
+  Time(h)                  mean|SHAP|=  8.553   10/10
+  SlogP_VSA5               mean|SHAP|=  8.478   10/10
+  Concentration            mean|SHAP|=  5.005   10/10
+  SMR_VSA5                 mean|SHAP|=  3.489   10/10
+  Solvent(MeOD)            mean|SHAP|=  2.420   10/10
+  NPR2_mean                mean|SHAP|=  2.416   10/10
+  Solvent(D2O)             mean|SHAP|=  2.210   10/10
+  Pbf_mean                 mean|SHAP|=  1.749   9/10
+  NPR1_mean                mean|SHAP|=  1.071   10/10
+  BCUT2D_MRLOW             mean|SHAP|=  0.999   10/10
+  VSA_EState4              mean|SHAP|=  0.442   4/10
+  FpDensityMorgan2         mean|SHAP|=  0.440   5/10
+  BCUT2D_MWHI              mean|SHAP|=  0.438   3/10
+  VSA_EState8              mean|SHAP|=  0.393   2/10
+  VSA_EState1              mean|SHAP|=  0.349   3/10
+
+=== FINAL locked-test SHAP (rf), top 15 ===
+SlogP_VSA5          12.327642
+Time(h)              8.471955
+Concentration        4.231488
+SMR_VSA5             3.926880
+Solvent(MeOD)        3.232194
+NPR2_mean            2.847712
+Solvent(D2O)         2.820246
+NPR1_mean            1.596827
+Pbf_mean             1.273333
+BCUT2D_MRLOW         0.595612
+FpDensityMorgan2     0.532211
+BCUT2D_MWLOW         0.494883
+VSA_EState1          0.453778
+BCUT2D_MWHI          0.429230
+FpDensityMorgan1     0.340556
+dtype: float64
+
+=== Shapley axiom verification ===
+1. Additivity over 229 locked-test rows: max |sum(SHAP)+E[f] - f(x)| = 3.624e-13 (relative 3.678e-15) -> PASS
+2. Missingness (constant dummy feature): max |SHAP(CONST_DUMMY)| = 0.000e+00 -> PASS
+3. Consistency (synthetic AND -> AND+0.125*x1-lift perturbation): phi_B(x1) - phi_A(x1) per sample = [-5.0, -5.0, 5.0, 5.0] (all >= 0) -> FAIL
+
+wrote /home/lilach/Projects/ML in ChemEng/Final project/extracted_aem/results/rf_interpretability.json
+wrote fig_parity.pdf
+wrote fig_shap_summary.pdf
+wrote fig_shap_stability.pdf
+our top-15 molecular descriptors (condition features excluded): ['SlogP_VSA5', 'SMR_VSA5', 'NPR2', 'NPR1', 'Pbf', 'BCUT2D_MRLOW', 'FpDensityMorgan2', 'BCUT2D_MWLOW', 'VSA_EState1', 'BCUT2D_MWHI', 'FpDensityMorgan1', 'MaxAbsPartialCharge', 'FpDensityMorgan3', 'MinPartialCharge', 'EState_VSA8']
+Zou Fig.3a top-20: ['C_count', 'N_count', 'O_count', 'MaxEStateIndex', 'MinEStateIndex', 'qed', 'MolWt', 'HeavyAtomMolWt', 'MaxPartialCharge', 'MaxAbsPartialCharge', 'MinAbsPartialCharge', 'FpDensityMorgan2', 'BCUT2D_MWLOW', 'BCUT2D_CHGHI', 'BCUT2D_CHGLO', 'BCUT2D_MRLOW', 'BertzCT', 'Chi0', 'Chi0v', 'Chi3v']
+overlap (4/15): ['BCUT2D_MRLOW', 'FpDensityMorgan2', 'BCUT2D_MWLOW', 'MaxAbsPartialCharge']
+
+share of total |SHAP| carried by experimental-condition features: 36.8%
+top-5 overlap with Zou top-20: 0/5 []
+top-10 overlap with Zou top-20: 3/10 ['BCUT2D_MRLOW', 'FpDensityMorgan2', 'BCUT2D_MWLOW']
+===WINNER ANALYSIS DONE===

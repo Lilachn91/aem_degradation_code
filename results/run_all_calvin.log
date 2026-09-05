@@ -1,0 +1,147 @@
+/home/lilach/Projects/ML in ChemEng/Final project/extracted_aem/protocol.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df["Time_log1p"] = np.log1p(df["Time(h)"])
+[pls] best params: {'model__n_components': 2}
+[pls] best CV RMSE (mean of 10 fold scores): 53.69  (tuning took 2s)
+[pls] pooled dev-CV (120 molecules): R2 = -2.749  RMSE = 69.67  MAE = 38.74
+[pls] LOCKED TEST (30 molecules):    R2 = -0.009  RMSE = 35.85  MAE = 31.89
+===PLS DONE===
+/home/lilach/Projects/ML in ChemEng/Final project/extracted_aem/protocol.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df["Time_log1p"] = np.log1p(df["Time(h)"])
+[svr] best params: {'model__C': 100, 'model__epsilon': 10.0, 'model__gamma': 0.01}
+[svr] best CV RMSE (mean of 10 fold scores): 30.30  (tuning took 3s)
+[svr] pooled dev-CV (120 molecules): R2 = 0.256  RMSE = 31.04  MAE = 25.23
+[svr] LOCKED TEST (30 molecules):    R2 = 0.356  RMSE = 28.64  MAE = 23.00
+===SVR DONE===
+/home/lilach/Projects/ML in ChemEng/Final project/extracted_aem/protocol.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df["Time_log1p"] = np.log1p(df["Time(h)"])
+[mlp] best params: {'model__alpha': 0.01, 'model__hidden_layer_sizes': (32, 16)}
+[mlp] best CV RMSE (mean of 10 fold scores): 59.43  (tuning took 17s)
+[mlp] pooled dev-CV (120 molecules): R2 = -2.862  RMSE = 70.71  MAE = 39.24
+[mlp] LOCKED TEST (30 molecules):    R2 = 0.447  RMSE = 26.54  MAE = 20.95
+===MLP DONE===
+[gb] best params: {'model__learning_rate': 0.03, 'model__max_depth': 3, 'model__n_estimators': 200}
+[gb] best CV RMSE (mean of 10 fold scores): 30.24  (tuning took 8s)
+[gb] pooled dev-CV (120 molecules): R2 = 0.251  RMSE = 31.14  MAE = 23.48
+[gb] LOCKED TEST (30 molecules):    R2 = 0.447  RMSE = 26.54  MAE = 20.71
+===GB DONE===
+/home/lilach/Projects/ML in ChemEng/Final project/extracted_aem/protocol.py:48: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df["Time_log1p"] = np.log1p(df["Time(h)"])
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+/home/lilach/mambaforge/envs/calvin/lib/python3.12/site-packages/sklearn/gaussian_process/kernels.py:445: ConvergenceWarning: The optimal value found for dimension 0 of parameter k2__noise_level is close to the specified lower bound 1e-05. Decreasing the bound and calling fit again may find a better value.
+  warnings.warn(
+[gp] best params: {'model__alpha': 1.0}
+[gp] best CV RMSE (mean of 10 fold scores): 31.81  (tuning took 42s)
+[gp] pooled dev-CV (120 molecules): R2 = 0.184  RMSE = 32.51  MAE = 26.32
+[gp] LOCKED TEST (30 molecules):    R2 = 0.389  RMSE = 27.89  MAE = 22.75
+===GP DONE===
+best params: {'model__max_depth': 10, 'model__min_samples_leaf': 1, 'model__n_estimators': 200}
+best CV RMSE (mean of 10 fold scores, from GridSearchCV): 27.43
+
+=== pooled out-of-fold dev-CV performance (all 120 molecules, one number) ===
+R2 = 0.360   RMSE = 28.79   MAE = 20.19   (target units: Degradation(%))
+
+=== SHAP stability across the 10 dev folds ===
+average pairwise Spearman correlation of feature-importance ranking between folds: 0.87
+top 15 features (mean |SHAP| averaged over folds) and how many of the 10 folds they appear in fold-level top 15:
+  Time(h)                        mean|SHAP|= 8.553  in top15 for 10/10 folds
+  SlogP_VSA5                     mean|SHAP|= 8.478  in top15 for 10/10 folds
+  Concentration                  mean|SHAP|= 5.005  in top15 for 10/10 folds
+  SMR_VSA5                       mean|SHAP|= 3.489  in top15 for 10/10 folds
+  Solvent(MeOD)                  mean|SHAP|= 2.420  in top15 for 10/10 folds
+  NPR2_mean                      mean|SHAP|= 2.416  in top15 for 10/10 folds
+  Solvent(D2O)                   mean|SHAP|= 2.210  in top15 for 10/10 folds
+  Pbf_mean                       mean|SHAP|= 1.749  in top15 for 9/10 folds
+  NPR1_mean                      mean|SHAP|= 1.071  in top15 for 10/10 folds
+  BCUT2D_MRLOW                   mean|SHAP|= 0.999  in top15 for 10/10 folds
+  VSA_EState4                    mean|SHAP|= 0.442  in top15 for 4/10 folds
+  FpDensityMorgan2               mean|SHAP|= 0.440  in top15 for 5/10 folds
+  BCUT2D_MWHI                    mean|SHAP|= 0.438  in top15 for 3/10 folds
+  VSA_EState8                    mean|SHAP|= 0.393  in top15 for 2/10 folds
+  VSA_EState1                    mean|SHAP|= 0.349  in top15 for 3/10 folds
+
+=== FINAL locked test_holdout performance (30 molecules, touched once) ===
+R2 = 0.436   RMSE = 26.80   MAE = 19.33
+
+=== FINAL SHAP (locked test set) top 15 features ===
+SlogP_VSA5          12.327642
+Time(h)              8.471955
+Concentration        4.231488
+SMR_VSA5             3.926880
+Solvent(MeOD)        3.232194
+NPR2_mean            2.847712
+Solvent(D2O)         2.820246
+NPR1_mean            1.596827
+Pbf_mean             1.273333
+BCUT2D_MRLOW         0.595612
+FpDensityMorgan2     0.532211
+BCUT2D_MWLOW         0.494883
+VSA_EState1          0.453778
+BCUT2D_MWHI          0.429230
+FpDensityMorgan1     0.340556
+dtype: float64
+===RF DONE===

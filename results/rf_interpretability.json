@@ -1,0 +1,44 @@
+{
+  "winner": "rf",
+  "mean_pairwise_spearman": 0.8661377223829515,
+  "top15": {
+    "Time(h)": 8.552531103613818,
+    "SlogP_VSA5": 8.477650527102671,
+    "Concentration": 5.005450916657667,
+    "SMR_VSA5": 3.489284787160829,
+    "Solvent(MeOD)": 2.4195495530391495,
+    "NPR2_mean": 2.4163223369586695,
+    "Solvent(D2O)": 2.209613768814174,
+    "Pbf_mean": 1.7490598109886293,
+    "NPR1_mean": 1.070905155814349,
+    "BCUT2D_MRLOW": 0.9991687086444717,
+    "VSA_EState4": 0.4422448344633806,
+    "FpDensityMorgan2": 0.44018609643300366,
+    "BCUT2D_MWHI": 0.4376301524938545,
+    "VSA_EState8": 0.3927574450605889,
+    "VSA_EState1": 0.34891998946381025
+  },
+  "top15_fold_consistency": {
+    "Time(h)": 10,
+    "SlogP_VSA5": 10,
+    "Concentration": 10,
+    "SMR_VSA5": 10,
+    "Solvent(MeOD)": 10,
+    "NPR2_mean": 10,
+    "Solvent(D2O)": 10,
+    "Pbf_mean": 9,
+    "NPR1_mean": 10,
+    "BCUT2D_MRLOW": 10,
+    "VSA_EState4": 4,
+    "FpDensityMorgan2": 5,
+    "BCUT2D_MWHI": 3,
+    "VSA_EState8": 2,
+    "VSA_EState1": 3
+  },
+  "axioms": {
+    "additivity_max_abs_dev": 3.623767952376511e-13,
+    "additivity_relative": 3.677976232712727e-15,
+    "missingness_max_abs": 0.0,
+    "consistency_pass": true
+  }
+}

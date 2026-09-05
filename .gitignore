@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+.ipynb_checkpoints/
+.DS_Store
+
+# superpowers working files must never be tracked, in any repo
+docs/superpowers/

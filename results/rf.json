@@ -1,0 +1,20 @@
+{
+  "name": "rf",
+  "best_params": {
+    "model__max_depth": 10,
+    "model__min_samples_leaf": 1,
+    "model__n_estimators": 200
+  },
+  "grid_best_cv_rmse": 27.43020424450313,
+  "dev_cv": {
+    "r2": 0.3597831783431563,
+    "rmse": 28.790455907458846,
+    "mae": 20.18898176796622
+  },
+  "locked_test": {
+    "r2": 0.4360304876685003,
+    "rmse": 26.79557749533345,
+    "mae": 19.33491614810481
+  },
+  "tuning_seconds": 13.9
+}
