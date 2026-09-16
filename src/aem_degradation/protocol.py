@@ -24,6 +24,13 @@ The paper's Methodology names the five families and their inclusion
 rationale but not the exact grid values, to save space -- each model's
 param_grid property (models/*.py) is the source of truth for what was
 actually searched.
+
+Selected configurations (the winning best_params in each results/<name>.json,
+reproduced here since the paper table drops them to save space): PLS
+n_components=2; SVR C=100, epsilon=10, gamma=0.01; GP alpha=1.0; RF 200
+trees, max_depth=10, min_samples_leaf=1; gradient boosting 200 trees,
+max_depth=3, learning_rate=0.03; MLP tanh, alpha=30, one hidden layer of
+32 units.
 """
 from __future__ import annotations
 
