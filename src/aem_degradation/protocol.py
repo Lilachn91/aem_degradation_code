@@ -19,6 +19,11 @@ Time(h) value (target untouched). Tree ensembles get raw Time(h) only.
 Each run writes results/<name>.json (metrics + best params) and
 results/<name>_preds.npz (OOF + locked-test predictions) so the
 figure/table step can consume every family uniformly.
+
+The paper's Methodology names the five families and their inclusion
+rationale but not the exact grid values, to save space -- each model's
+param_grid property (models/*.py) is the source of truth for what was
+actually searched.
 """
 from __future__ import annotations
 

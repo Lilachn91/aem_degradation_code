@@ -23,6 +23,16 @@ splits:
         lightly-tuned hyperparameters, not nested CV). Test rows get
         cv_fold = -1 (never used for tuning or fold-based scoring).
 
+Why cross-validate at all, rather than a single train/validation split:
+with only 120 development molecules, one split would leave any performance
+estimate hostage to which molecules happened to land on the validation
+side. Cross-validating instead (the cv_fold column) means every
+development molecule is held out exactly once, and the reported dev score
+is pooled over all of them rather than over one arbitrary subset. (Paper
+Methodology, "Data Integrity and Validation Strategy" -- trimmed out of
+the paper text to this docstring since it's a generic CV-design point,
+not a project-specific finding.)
+
 (c) family-holdout (train on some chemical families, test on a held-out
     one) is intentionally not built here -- future work.
 """
