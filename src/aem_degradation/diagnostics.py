@@ -187,7 +187,15 @@ class KFoldSensitivity:
     folds and to which of several equally-valid partitions at that fold
     count is drawn. RF hyperparameters are held fixed at the grouped
     winner's values throughout; only the partitioning varies. Diagnostic
-    only -- the locked test set is never touched."""
+    only -- the locked test set is never touched.
+
+    Justifies the paper's choice of k=10: repeating the pooled dev-CV
+    score across k in {3, 5, 10, 15, 20} and leave-one-molecule-out
+    (K_VALUES below), with hyperparameters fixed, confirms k=10 already
+    sits close to the leave-one-out ceiling -- i.e. k=10 was not an
+    arbitrary pick. This detail lives here rather than in main.tex to
+    keep the paper's Data Integrity subsection short; see
+    results/kfold_sensitivity.json for the numbers."""
 
     N_SEEDS = 10
     K_VALUES = [3, 5, 10, 15, 20]
