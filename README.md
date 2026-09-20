@@ -7,7 +7,7 @@ Zou et al. 2023 (*Angew. Chem. Int. Ed.* 62, e202300388).
 
 Final project codebase for *Machine Learning for Chemical Engineering*
 (Track 1, Technion, Dr. Barak Or). The accompanying 4-page paper is at
-`<link to the paper repo / Overleaf project — fill in before submission>`.
+<https://github.com/Lilachn91/ML_ChemEng_Final_Project>.
 
 ## What this is
 
