@@ -13,8 +13,11 @@ stage by stage, what the original flat scripts did as `__main__`:
     kfold_sensitivity.py -> diagnostics
     make_figures.py     -> figures [--winner rf]
 
-    all                 -> clean, split, train (all families), interpret,
-                           benchmark, diagnostics, figures, in that order.
+    all                 -> clean, train (all families), interpret, benchmark,
+                           diagnostics, figures, in that order. `all` does NOT
+                           re-split: it reuses the shipped fold assignment, so
+                           it reproduces the paper's numbers. --rebuild-splits
+                           adds the split stage back.
 
 Every stage reads/writes exactly the same data/results files the original
 scripts did (see src/aem_degradation/paths.py) -- nothing here changes the
@@ -100,7 +103,15 @@ def cmd_figures(args):
 
 def cmd_all(args):
     cmd_clean(args)
-    cmd_split(args)
+    if getattr(args, "rebuild_splits", False):
+        cmd_split(args)
+    else:
+        print("=== split: skipped, reusing the shipped fold assignment ===")
+        print("    data/database_with_splits.csv already holds the exact cv_fold and")
+        print("    test_holdout columns behind every number in the paper, so `all`")
+        print("    reuses them and reproduces those numbers. Pass --rebuild-splits to")
+        print("    regenerate the columns instead; that yields a different, equally")
+        print("    valid partition and different scores (see the README).")
     cmd_train(argparse.Namespace(models=None))
     cmd_interpret(args)
     cmd_benchmark(args)
@@ -136,6 +147,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     a = sub.add_parser("all", help="run every stage above in order, for the default winner")
     a.add_argument("--winner", default=DEFAULT_WINNER, choices=list(REGISTRY.keys()))
+    a.add_argument("--rebuild-splits", action="store_true",
+                   help="also run the split stage, overwriting the shipped fold "
+                        "assignment; without this flag `all` reuses it, which is "
+                        "what reproduces the paper's numbers")
     a.set_defaults(func=cmd_all)
 
     return p

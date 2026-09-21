@@ -81,7 +81,10 @@ python scripts/run_pipeline.py diagnostics
 #    fig_shap_stability) from whatever is currently in results/
 python scripts/run_pipeline.py figures --winner rf
 
-# ...or all of the above, in order, for the default winner:
+# ...or all of the above, in order, for the default winner. NOTE: `all` does
+# NOT re-run the split stage -- it reuses the fold assignment shipped in
+# data/database_with_splits.csv, which is what makes it reproduce the paper's
+# numbers exactly. Pass --rebuild-splits to regenerate the columns instead.
 python scripts/run_pipeline.py all
 ```
 
@@ -118,10 +121,12 @@ the paper's numbers just belong to one specific saved partition.
 
 **So: do not run `split` if you want the paper's numbers.** Use the shipped
 `data/database_with_splits.csv`, which is exactly what `train` reads by
-default. Note that `run_pipeline.py all` runs `split` first, so the
-convenience one-liner regenerates the fold column and will not reproduce
-the paper exactly; run the stages individually, starting from `train`, to
-reproduce. We state this plainly rather than hiding it.
+default. For that reason `run_pipeline.py all` deliberately **skips** the
+split stage and reuses the shipped fold assignment — the one-liner
+reproduces the paper as-is, and prints a line saying it skipped the stage.
+`--rebuild-splits` adds the stage back for anyone who wants to see the
+pipeline construct the columns from scratch. We state this plainly rather
+than hiding it.
 
 ## Tests (optional)
 
