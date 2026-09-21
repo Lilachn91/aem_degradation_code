@@ -1,19 +1,20 @@
 {
   "name": "mlp",
   "best_params": {
-    "model__alpha": 0.01,
-    "model__hidden_layer_sizes": "(32, 16)"
+    "model__activation": "tanh",
+    "model__alpha": 30.0,
+    "model__hidden_layer_sizes": "(32,)"
   },
-  "grid_best_cv_rmse": 59.4271726175612,
+  "grid_best_cv_rmse": 32.643754042366105,
   "dev_cv": {
-    "r2": -2.8616943323132658,
-    "rmse": 70.70887849629862,
-    "mae": 39.235463321267055
+    "r2": 0.09166475125570028,
+    "rmse": 34.2932057779782,
+    "mae": 25.40283339837433
   },
   "locked_test": {
-    "r2": 0.44655258925554453,
-    "rmse": 26.54443512321971,
-    "mae": 20.953588702746483
+    "r2": 0.4562286548246358,
+    "rmse": 26.311370303546624,
+    "mae": 18.774709497958003
   },
-  "tuning_seconds": 17.3
+  "tuning_seconds": 123.4
 }

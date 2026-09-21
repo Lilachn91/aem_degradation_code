@@ -187,13 +187,14 @@ R² for each family (see `results/<name>.json` for full metrics):
 | Gradient Boosting | 0.251 | 0.447 |
 | Support Vector Regression | 0.256 | 0.356 |
 | Gaussian Process | 0.184 | 0.389 |
-| MLP | −2.86 | 0.447 |
+| MLP | 0.092 | 0.456 |
 | PLS | −2.75 | −0.009 |
 
-PLS and MLP collapse to a negative pooled dev-CV R² (worse than predicting
-the dev-set mean) despite the grid search choosing a low-complexity
-configuration for each (PLS: 2 latent components; MLP: strong L2
-regularization) — see the paper's Results for the discussion. Random
+PLS collapses to a negative pooled dev-CV R² (worse than predicting the
+dev-set mean) despite the grid search choosing only 2 latent components,
+and the MLP barely clears zero despite a grid-selected `tanh` activation
+and strong L2 regularization (α = 30) — with a `relu` activation it too
+collapses, to −2.86 — see the paper's Results for the discussion. Random
 Forest is the interpretability winner (`results/rf_interpretability.json`,
 `results/rf_final_shap_importance.csv`, `results/rf_shap_by_fold.csv`):
 mean pairwise Spearman ρ of 0.87 across the 10 dev folds' top-feature
