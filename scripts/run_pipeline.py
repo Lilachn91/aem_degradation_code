@@ -36,6 +36,14 @@ import argparse
 import sys
 from pathlib import Path
 
+if sys.version_info < (3, 12):
+    sys.exit(
+        f"This pipeline requires Python 3.12 or newer (found "
+        f"{sys.version_info.major}.{sys.version_info.minor}). The pinned "
+        f"numpy/scipy/shap versions in requirements.txt do not build on older "
+        f"interpreters."
+    )
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from aem_degradation.benchmarking import ZouBenchmark

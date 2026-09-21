@@ -1,3 +1,7 @@
+# Requires Python >= 3.12 (the numpy/scipy/shap pins below all declare
+# requires-python >= 3.12). pip cannot enforce a Python version from a
+# requirements file, so scripts/run_pipeline.py checks it at startup.
+# Published run: Python 3.12.1 with exactly these pins.
 numpy==2.5.2
 pandas==3.0.5
 scikit-learn==1.9.0

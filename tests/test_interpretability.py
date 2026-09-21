@@ -15,13 +15,19 @@ from aem_degradation.protocol import ExperimentProtocol
 from aem_degradation.splits import SplitBuilder
 
 
+# Six molecular-descriptor columns, so that ZouBenchmark(top_n=5) still has at
+# least five to rank after the experimental-condition features are excluded.
+_DESCRIPTORS = ["feature_a", "feature_b", "feature_c", "feature_d", "feature_e", "feature_f"]
+
+
 def _synth_splits_csv(tmp_path, n_mol=60, rows_per_mol=3, seed=2) -> Path:
     rng = np.random.RandomState(seed)
     rows = [
         {
             "SMILES": f"MOL_{m}", "Degradation(%)": float(rng.uniform(0, 100)),
             "Time(h)": rng.uniform(1, 500), "Concentration": rng.uniform(0.5, 2.0),
-            "Temperature": rng.uniform(20, 90), "feature_a": rng.randn(), "feature_b": rng.randn(),
+            "Temperature": rng.uniform(20, 90),
+            **{name: rng.randn() for name in _DESCRIPTORS},
         }
         for m in range(n_mol) for _ in range(rows_per_mol)
     ]

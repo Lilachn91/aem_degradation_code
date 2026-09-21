@@ -101,12 +101,20 @@ paper's numbers exactly.
 
 `scripts/run_pipeline.py split`, however, calls `GroupKFold` itself to
 *build* that column from scratch, and it does **not** reproduce the shipped
-column — not even under the pinned `scikit-learn==1.9.0`. A fresh `split`
-run reassigns a large fraction of rows to different folds, which moves RF's
-pooled dev-CV R² from 0.360 to roughly 0.322. The locked-test partition
-(`GroupShuffleSplit`) is itself stable, but the locked-test *score* still
-shifts (0.436 to roughly 0.421), because the inner CV is what selects the
-hyperparameters that are subsequently scored on the locked test.
+column — not even under the pinned `scikit-learn==1.9.0`. This is not
+run-to-run randomness: `split` is fully deterministic and gives the same
+answer every time it is run. The shipped column was simply written by an
+earlier revision of the split code, and the current revision produces a
+different — equally valid — partition of the same development molecules.
+Concretely, of the 896 rows, `test_holdout` is reproduced exactly (0 rows
+differ; the `GroupShuffleSplit(random_state=42)` locked-test partition is
+stable) while 464 rows land in a different `cv_fold`. That moves RF's
+pooled dev-CV R² from 0.360 to roughly 0.322, and the locked-test score
+from 0.436 to roughly 0.421 — the locked-test *set* is unchanged, but the
+inner CV is what selects the hyperparameters that are subsequently scored
+on it. Both partitions sit inside the ±0.05 R² across-partition spread the
+`KFoldSensitivity` diagnostic already reports, so nothing is invalidated;
+the paper's numbers just belong to one specific saved partition.
 
 **So: do not run `split` if you want the paper's numbers.** Use the shipped
 `data/database_with_splits.csv`, which is exactly what `train` reads by
