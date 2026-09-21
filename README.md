@@ -6,8 +6,7 @@ conditions (time, temperature, concentration, solvent), on the dataset of
 Zou et al. 2023 (*Angew. Chem. Int. Ed.* 62, e202300388).
 
 Final project codebase for *Machine Learning for Chemical Engineering*
-(Track 1, Technion, Dr. Barak Or). The accompanying 4-page paper is at
-<https://github.com/Lilachn91/ML_ChemEng_Final_Project>.
+(Track 1, Technion, Dr. Barak Or), accompanying the 4-page project paper.
 
 ## What this is
 
