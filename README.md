@@ -33,7 +33,10 @@ python -m venv .venv && source .venv/bin/activate   # or conda, etc.
 pip install -r requirements.txt
 ```
 
-Tested against Python 3.11 with the pinned versions in `requirements.txt`.
+**Requires Python 3.12 or newer.** The pinned `numpy`, `scipy`, and `shap`
+versions in `requirements.txt` all declare `requires-python >= 3.12`, so
+`pip install -r requirements.txt` will fail on 3.11 or older. The published
+run used Python 3.12.1 with exactly these pins.
 No RDKit or Excel dependency is required — the molecular descriptors are
 already computed in the shipped CSVs (`data/`); this package only consumes
 them.
@@ -97,19 +100,20 @@ recomputing it — so re-running `train` on the shipped data reproduces the
 paper's numbers exactly.
 
 `scripts/run_pipeline.py split`, however, calls `GroupKFold` itself to
-*build* that column from scratch. `GroupKFold`'s tie-breaking behavior for
-equal-sized groups is not guaranteed stable across scikit-learn versions.
-This package is pinned to `scikit-learn==1.9.0` (also the version the
-published run used), and under that version `split` regenerates the
-checked-in `database_with_splits.csv` byte-for-byte. Under a materially
-different scikit-learn version, a fresh `split` run can assign a small
-number of molecules to different folds than the shipped file, which can
-shift the pooled dev-CV score by roughly ±0.05 R² — the locked-test split
-(`GroupShuffleSplit`) and the reported locked-test numbers are not affected
-by this, only the dev-CV fold assignment is. We are stating this plainly
-rather than hiding it: if you need the paper's exact numbers, use the
-shipped `data/database_with_splits.csv` (the default `train` behavior)
-rather than regenerating it under a different environment.
+*build* that column from scratch, and it does **not** reproduce the shipped
+column — not even under the pinned `scikit-learn==1.9.0`. A fresh `split`
+run reassigns a large fraction of rows to different folds, which moves RF's
+pooled dev-CV R² from 0.360 to roughly 0.322. The locked-test partition
+(`GroupShuffleSplit`) is itself stable, but the locked-test *score* still
+shifts (0.436 to roughly 0.421), because the inner CV is what selects the
+hyperparameters that are subsequently scored on the locked test.
+
+**So: do not run `split` if you want the paper's numbers.** Use the shipped
+`data/database_with_splits.csv`, which is exactly what `train` reads by
+default. Note that `run_pipeline.py all` runs `split` first, so the
+convenience one-liner regenerates the fold column and will not reproduce
+the paper exactly; run the stages individually, starting from `train`, to
+reproduce. We state this plainly rather than hiding it.
 
 ## Tests (optional)
 
